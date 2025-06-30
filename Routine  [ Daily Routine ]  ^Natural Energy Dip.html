@@ -1,0 +1,45 @@
+      <!DOCTYPE html>
+<html>
+  <head>
+    <title>Redirecting to Obsidian...</title>
+    <script>
+      // 1. Determine vault name
+      function getVaultName() {
+        const savedVault = localStorage.getItem("vaultName");
+        if (savedVault) return savedVault;
+
+        const input = prompt("Which vault is this device using?\nType 'A' for Digital Brain (A)\nType 'B' for Digital Brain (B)", "A or B");
+        let vaultName;
+
+        if (input?.toUpperCase() === "A") {
+          vaultName = "Digital Brain (A)";
+        } else if (input?.toUpperCase() === "B") {
+          vaultName = "Digital Brain (B)";
+        } else {
+          alert("Invalid input. Reload and enter A or B.");
+          return null;
+        }
+
+        localStorage.setItem("vaultName", vaultName);
+        return vaultName;
+      }
+
+      // 2. Set vault and redirect
+      const vault = getVaultName();
+      if (vault) {
+        const vaultEncoded = encodeURIComponent(vault);
+
+        // 🔧 ONLY CHANGE THIS LINE for new redirect targets:
+        const uriPath = "adv-uri?vault=" + vaultEncoded
+                      + "&filepath=Health%2FA%2BB%2FRoutine.md"
+                      + "&block=13923b";
+
+        // 3. Redirect
+        window.location.href = "obsidian://" + uriPath;
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to your Obsidian note…</p>
+  </body>
+</html>
