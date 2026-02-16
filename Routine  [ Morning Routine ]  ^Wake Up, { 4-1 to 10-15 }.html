@@ -3,7 +3,7 @@
   <head>
     <title>Redirecting to Obsidian...</title>
     <script>
-      // 1. Determine vault name
+      // 1. Determine Vault Name
       function getVaultName() {
         const savedVault = localStorage.getItem("vaultName");
         if (savedVault) return savedVault;
@@ -24,12 +24,12 @@
         return vaultName;
       }
 
-      // 2. Set vault and redirect
+      // 2. Set Vault & Redirect
       const vault = getVaultName();
       if (vault) {
         const vaultEncoded = encodeURIComponent(vault);
 
-        // ONLY CHANGE THIS LINE for new redirect targets:
+        // ONLY CHANGE THIS LINE for New Redirect Targets:
         const uriPath = "adv-uri?vault=" + vaultEncoded
                       + "&filepath=Health%2FA%2BB%2FRoutine.md"
                       + "&block=26e5f7";
