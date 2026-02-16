@@ -8,15 +8,15 @@
         const savedVault = localStorage.getItem("vaultName");
         if (savedVault) return savedVault;
 
-        const input = prompt("Which vault is this device using?\nType 'A' for Digital Brain (A)\nType 'B' for Digital Brain (B)", "A or B");
+        const input = prompt("Which vault is this device using?\nType 'AK' for Digital Brain (AK)\nType 'BK' for Digital Brain (BK)", "AK or BK");
         let vaultName;
 
-        if (input?.toUpperCase() === "A") {
-          vaultName = "Digital Brain (A)";
-        } else if (input?.toUpperCase() === "B") {
-          vaultName = "Digital Brain (B)";
+        if (input?.toUpperCase() === "AK") {
+          vaultName = "Digital Brain (AK)";
+        } else if (input?.toUpperCase() === "BK") {
+          vaultName = "Digital Brain (BK)";
         } else {
-          alert("Invalid input. Reload and enter A or B.");
+          alert("Invalid input. Reload and enter AK or BK.");
           return null;
         }
 
@@ -29,7 +29,7 @@
       if (vault) {
         const vaultEncoded = encodeURIComponent(vault);
 
-        // 🔧 ONLY CHANGE THIS LINE for new redirect targets:
+        // ONLY CHANGE THIS LINE for new redirect targets:
         const uriPath = "adv-uri?vault=" + vaultEncoded
                       + "&filepath=Health%2FA%2BB%2FRoutine.md"
                       + "&block=26e5f7";
