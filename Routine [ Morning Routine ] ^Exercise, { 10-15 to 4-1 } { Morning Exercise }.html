@@ -1,22 +1,22 @@
       <!DOCTYPE html>
 <html>
   <head>
-    <title>Redirecting to Obsidian...</title>
+    <title>Redirecting to Obsidian</title>
     <script>
-      // 1. Determine vault name
+      // 1. Determine Vault Name
       function getVaultName() {
         const savedVault = localStorage.getItem("vaultName");
         if (savedVault) return savedVault;
 
-        const input = prompt("Which vault is this device using?\nType 'A' for Digital Brain (A)\nType 'B' for Digital Brain (B)", "A or B");
+        const input = prompt("Which vault is this device using?\nType 'AK' for Digital Brain (AK)\nType 'BK' for Digital Brain (BK)", "AK or BK");
         let vaultName;
 
-        if (input?.toUpperCase() === "A") {
-          vaultName = "Digital Brain (A)";
-        } else if (input?.toUpperCase() === "B") {
-          vaultName = "Digital Brain (B)";
+        if (input?.toUpperCase() === "AK") {
+          vaultName = "Digital Brain (AK)";
+        } else if (input?.toUpperCase() === "BK") {
+          vaultName = "Digital Brain (BK)";
         } else {
-          alert("Invalid input. Reload and enter A or B.");
+          alert("Invalid input. Reload and enter AK or BK.");
           return null;
         }
 
@@ -24,14 +24,14 @@
         return vaultName;
       }
 
-      // 2. Set vault and redirect
+      // 2. Set Vault & Redirect
       const vault = getVaultName();
       if (vault) {
         const vaultEncoded = encodeURIComponent(vault);
 
-        // 🔧 ONLY CHANGE THIS LINE for new redirect targets:
+        // ONLY CHANGE THESE LINES for New Redirect Targets
         const uriPath = "adv-uri?vault=" + vaultEncoded
-                      + "&filepath=Health%2FA%2BB%2FRoutine.md"
+                      + "&filepath=Health%2FAK%20%26%20BK%2FRoutine.md"
                       + "&block=639994";
 
         // 3. Redirect
@@ -40,6 +40,6 @@
     </script>
   </head>
   <body>
-    <p>Redirecting to your Obsidian note…</p>
+    <p>Redirecting to Obsidian</p>
   </body>
 </html>
